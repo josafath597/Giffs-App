@@ -7,18 +7,24 @@ import { GifsService } from '../../gifs/services/gifs.service';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent{
-
+  private valor: string[] = [];
   constructor(private gifsService: GifsService){
 
   }
 
   get historial( ) {
-    let valor = this.gifsService.historial;
-    return valor;
+    this.valor = this.gifsService.historial;
+    return this.valor;
   }
 
   buscar ( termino: string) {
     this.gifsService.buscarGifs(termino);
+  }
+
+  borrar(){
+    this.gifsService._historial=[];
+    this.gifsService.auxiliar=[];
+    localStorage.clear();
   }
 
 

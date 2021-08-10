@@ -1,5 +1,6 @@
 import { Component, ElementRef, ViewChild} from '@angular/core';
 import { GifsService } from '../services/gifs.service';
+import { Gif } from '../interface/gifs.interface';
 
 @Component({
   selector: 'app-busqueda',
@@ -21,4 +22,8 @@ export class BusquedaComponent{
     this.gifsService.buscarGifs(valor);
     this.txtBuscar.nativeElement.value = '';
   }
+
+  siguiente(){
+      this.gifsService.auxiliar=this.gifsService.resultados.splice(9,9);
+    }
 }

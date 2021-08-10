@@ -8,10 +8,10 @@ import { Gif, SearchGifsResponse } from '../interface/gifs.interface';
 export class GifsService {
   private apiKey     : string = 'wUuOqDqYhaY2T0k6E9nBm5RotSG2ZcV9';
   private servicioUrl: string = 'https://api.giphy.com/v1/gifs'
-  private limite     : number = 10;
+  private limite     : string =  '1000';
   private lang       : string = 'es'
-  private _historial : string[] = [];
-
+  public _historial : string[] = [];
+  public auxiliar: Gif[] = [];
   public resultados :Gif[] = [];
 
   get historial(){
@@ -43,8 +43,8 @@ export class GifsService {
       .subscribe((resp) =>{
         this.resultados = resp.data;
         localStorage.setItem('resultado', JSON.stringify(resp.data));
-      })
-      
+        this.auxiliar = resp.data.splice(0,9);
+      })    
       
   }
 }
