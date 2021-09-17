@@ -5,7 +5,10 @@ import { HttpClientModule} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { GifsModule } from './gifs/gifs.module';
 import { SharedModule } from './shared/shared.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent
@@ -14,8 +17,10 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     HttpClientModule,
     SharedModule,
-    GifsModule
-    
+    GifsModule,
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

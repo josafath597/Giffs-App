@@ -12,7 +12,9 @@ export class ResultadosComponent{
   
 
   constructor( private gifsService: GifsService) { }
+  
   get resultados(){
     return this.gifsService.auxiliar;
   }
+  
 }
